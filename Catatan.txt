@@ -1,0 +1,34 @@
+Video 4
+Hapus git
+rm -rf .git
+
+Video 5 
+Free themes for Bootstrap
+https://bootswatch.com/
+1. download
+2. tarok di src
+3. import di index.js
+
+install bootstrap
+npm install react-bootstrap
+
+import fontawesome untuk icon
+1. dari https://cdnjs.com/libraries/font-awesome
+2. copy link tag
+3. import di index.html
+
+video 7
+di rating.js
+kirim default props
+Rating.defaultProps = {
+  color: '#f8e825',
+};
+
+proyotpye untuk type dari propsnya
+Rating.PropTypes = {
+  value: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string
+};
+
+
