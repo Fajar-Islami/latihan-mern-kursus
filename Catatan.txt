@@ -31,4 +31,29 @@ Rating.propTypes = {
   color: PropTypes.string
 };
 
+video 8
+install react router
+npm i react-router-dom react-router-bootstrap
+react-router-bootstrap ==> agar bisa link
 
+di header.js
+import {LinkContainer} from 'react-router-bootstrap'
+agar tidak loading ketika pindah halaman
+
+Video 10
+TONTON ULANG UNTUK LEBIH DETAIL
+
+GET	= GET DATA
+POST	= adding data
+PUT	= update data
+DELETE	= delete data
+
+Video 11
+membuat folder backend
+npm init
+
+instal express di root
+npm i express
+
+menjalankan server
+node backend/server atau npm run start
