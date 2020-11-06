@@ -63,7 +63,24 @@ npm i axios
 axios untuk membuat http request ke backend / fetch api
 
 tidak ada error cors 
-karena pakai PROXY di package.json
+karena pakai PROXY di package.json frontend/reactnya
+"proxy": "http://127.0.0.1:5000"
+
+Kalo pemanggilan data gunakan async await
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${match.params.id}`);
+      setProduct(data);
+    };
+    fetchProduct();
+  }, []);
+
+
+Video 13
+npm i -D nodemon concurrently
+untuk menjalankan backend dan frontend bersamaan
+
+
 
 
 
