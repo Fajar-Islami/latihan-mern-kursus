@@ -57,3 +57,13 @@ npm i express
 
 menjalankan server
 node backend/server atau npm run start
+
+Video 12
+npm i axios
+axios untuk membuat http request ke backend / fetch api
+
+tidak ada error cors 
+karena pakai PROXY di package.json
+
+
+
