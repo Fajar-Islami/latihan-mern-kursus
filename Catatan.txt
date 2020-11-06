@@ -85,3 +85,15 @@ dotenv = untuk api key, jwt, database
 	untuk informasi sensitif
 npm i dotenv
 lihat dokumentasi di https://www.npmjs.com/package/dotenv
+
+Video 15
+require itu js biasa
+di convert jadi js modern/ ecmascript
+harus node --version > 14.0
+
+di package.json root tambah
+"type":"module",
+
+kalao js file tambah .js
+
+
