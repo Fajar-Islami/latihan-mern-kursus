@@ -80,7 +80,8 @@ Video 13
 npm i -D nodemon concurrently
 untuk menjalankan backend dan frontend bersamaan
 
-
-
-
-
+Video 14
+dotenv = untuk api key, jwt, database 
+	untuk informasi sensitif
+npm i dotenv
+lihat dokumentasi di https://www.npmjs.com/package/dotenv
