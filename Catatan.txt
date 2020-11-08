@@ -102,5 +102,30 @@ pembuatan folder config/db.js
 
 kalau promise, kayak then.cacth try catch itu perlu async await
 
+Video 18
+npm i colors
+untuk membedakan warna 
+- server jalan
+- database atlas
+- error
 
+Video 19
+Membuat skema di models backend
 
+Video 20
+npm i bcryptjs
+
+kalo bcrypt doang bisa ada masalah
+
+Video 21
+Database seeder supaya mudah input data
+
+node backend/seed -d
+untuk destroy data
+
+di package.json
+   "data:import": "node backend/seeder",
+    "data:destroy": "node backend/seeder -d"
+
+Video 22
+Fetch data
