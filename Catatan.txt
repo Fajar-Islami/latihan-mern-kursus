@@ -96,4 +96,11 @@ di package.json root tambah
 
 kalao js file tambah .js
 
+Video 17
+npm i mongoose
+pembuatan folder config/db.js
+
+kalau promise, kayak then.cacth try catch itu perlu async await
+
+
 
