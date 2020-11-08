@@ -1,5 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import colors from 'colors';
+
 import products from './data/products.js';
 import connectDB from './config/db.js';
 
@@ -26,5 +28,7 @@ const PORT = process.env.PORT || 5000; // Kalau tidak ketemu jadi port 5000
 
 app.listen(
   PORT,
-  console.log(`Sever Running in ${process.env.NODE_ENV} on port ${PORT}`),
+  console.log(
+    `Server Running in ${process.env.NODE_ENV} on port ${PORT}`.yellow.bold,
+  ),
 );
