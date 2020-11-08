@@ -26,9 +26,8 @@ router.get(
     if (product) {
       res.json(product);
     } else {
-      res.status(404).json({
-        msg: 'Product not found',
-      });
+      res.status(404); // Kalo tidak di set jadi 500
+      throw new Error('Product not found');
     }
   }),
 );

@@ -128,4 +128,11 @@ di package.json
     "data:destroy": "node backend/seeder -d"
 
 Video 22
-Fetch data
+Fetch data from DB
+express-async-handler
+Simple middleware for handling exceptions inside of async express routes and passing them to your express error handlers.
+npm i express-async-handler
+
+Video 23
+Error handling API
+
