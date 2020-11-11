@@ -147,4 +147,8 @@ react-redux	= redux untuk react
 redux-thunk	= utk buat async request, karena berhubungan server
 redux-devtools-extension = agar bisa dipake extensi redux-devtools di browser
 
-pembuatan store.js
+pembuatan file store.js
+
+Video 28
+useDispatch = call action
+useSelector = select part of state
