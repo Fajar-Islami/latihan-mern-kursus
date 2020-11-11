@@ -20,6 +20,12 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
           cartItems: [...state.cartItems, item], // nambah isi cartItems
         };
       }
+    case CART_REMOVE_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((x) => x.product !== action.payload),
+        // x.product == _id
+      };
     default:
       return state;
   }
