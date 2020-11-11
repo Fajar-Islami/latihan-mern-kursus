@@ -152,3 +152,15 @@ pembuatan file store.js
 Video 28
 useDispatch = call action
 useSelector = select part of state
+
+Video 31
+ <Route path='/cart/:id?' component={CartScreen} />
+          {/* opisonal idnya */}
+
+
+Video 32
+getState = get entire state tree
+
+Video 33
+import {useDispatch,useSelector} from 'react-redux'
+sering dipake di redux
