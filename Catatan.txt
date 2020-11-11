@@ -133,6 +133,18 @@ express-async-handler
 Simple middleware for handling exceptions inside of async express routes and passing them to your express error handlers.
 npm i express-async-handler
 
-Video 23
+Video 24
 Error handling API
 
+Video 25
+Redux tidak hanya untuk react
+
+Video 26
+npm i redux react-redux redux-thunk redux-devtools-extension
+
+redux bisa dipakai di angular
+react-redux	= redux untuk react
+redux-thunk	= utk buat async request, karena berhubungan server
+redux-devtools-extension = agar bisa dipake extensi redux-devtools di browser
+
+pembuatan store.js
