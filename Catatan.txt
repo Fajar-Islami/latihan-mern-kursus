@@ -196,3 +196,26 @@ shhhh ==> secret code
 pembuatan folder utils/generateToken
 
 Video 40
+token dikirim ke headers Authorization
+lihat GET /api/users/profile di postman
+token diambil dari headers
+
+Video 41
+Menambahkan/simpan token ke postman
+
+di POST /api/users/login 
+test tambah:
+pm.environment.set("TOKEN",pm.response.json().token)
+
+di GET /api/users/profile
+authorization:
+type: bearer token
+token: {{TOKEN}}
+
+cek di environment pojok kanan atas
+
+Video 42
+Register user
+
+middleware enkrip password di model user
+perubahan di userController, userModel,userRoutes
