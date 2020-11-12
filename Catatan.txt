@@ -164,3 +164,12 @@ getState = get entire state tree
 Video 33
 import {useDispatch,useSelector} from 'react-redux'
 sering dipake di redux
+
+Video 34
+ubah cartscreen
+
+Video 35
+remove cart item
+
+video 36
+pembuatan controller
