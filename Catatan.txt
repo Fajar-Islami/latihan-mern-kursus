@@ -172,4 +172,27 @@ Video 35
 remove cart item
 
 video 36
-pembuatan controller
+pembuatan controller pada backend
+
+video 37
+user model
+
+// Sebelum brcrypt di controller
+userSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
+
+Video 38
+JWT
+Authentication	= ketika take email dan password ke database
+Authorization	= user access
+
+Video 39
+untuk membuat token butuh ==> .sign
+var token = jwt.sign({ foo: 'bar' }, 'shhhhh');
+shhhh ==> secret code
+
+pembuatan folder utils/generateToken
+
+Video 40
