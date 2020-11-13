@@ -11,7 +11,7 @@ export const login = (email, password) => async (dispatch) => {
       type: USER_LOGIN_REQUEST,
     });
 
-    // sent to headers
+    // sent data to headers
     const config = {
       header: {
         'Content-Type': 'application/json',

@@ -223,3 +223,10 @@ perubahan di userController, userModel,userRoutes
 Video 43
 User login
 pembuatan userAction,userConstant,useReducer dan ubah store
+
+Video 44
+LoginScreen.js
+
+ini kalo checkout tanpa login
+ const redirect = location.search ? location.search.split('=')[1] : '/';
+
