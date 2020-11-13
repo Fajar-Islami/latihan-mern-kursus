@@ -240,3 +240,8 @@ Pembuatan register action,reducer,constant,screen
 Video 47
 Update profile di usercontroller
 updateUserProfile
+
+Video 48
+Profile screen
+
+Video 49
