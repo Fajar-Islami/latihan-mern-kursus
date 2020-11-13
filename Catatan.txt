@@ -230,3 +230,10 @@ LoginScreen.js
 ini kalo checkout tanpa login
  const redirect = location.search ? location.search.split('=')[1] : '/';
 
+Video 45
+Kalo mau action pakai useDispatch
+kalo mau bawa state pakai useSelector
+
+Video 46
+Pembuatan register action,reducer,constant,screen
+
