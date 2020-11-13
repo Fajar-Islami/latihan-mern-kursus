@@ -237,3 +237,6 @@ kalo mau bawa state pakai useSelector
 Video 46
 Pembuatan register action,reducer,constant,screen
 
+Video 47
+Update profile di usercontroller
+updateUserProfile
