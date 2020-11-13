@@ -23,7 +23,7 @@ const LoginScreen = ({ history, location }) => {
     if (userInfo) {
       history.push(redirect);
     }
-    console.log(redirect);
+    // console.log(redirect);
   }, [history, userInfo, redirect]);
 
   const submitHandler = (e) => {
