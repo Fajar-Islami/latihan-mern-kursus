@@ -215,7 +215,11 @@ token: {{TOKEN}}
 cek di environment pojok kanan atas
 
 Video 42
-Register user
+Register user di postman
 
 middleware enkrip password di model user
 perubahan di userController, userModel,userRoutes
+
+Video 43
+User login
+pembuatan userAction,userConstant,useReducer dan ubah store
