@@ -246,3 +246,14 @@ Profile screen
 
 Video 49
 update user profile
+
+kalau update dan detail harus ambil token nya, trus di konvert sama jwt buat dpt datanya
+
+Video 51
+penambahan shippingscreen, action,reducer, constants
+
+Video 52
+Nav di shipping, checkout steps
+
+Video 53
+payment screen,action,reducer, constants
