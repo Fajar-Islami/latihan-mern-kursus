@@ -155,6 +155,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(`/api/users/profile`, user, config);
+    // user itu berupa objec dari profilescreen
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
