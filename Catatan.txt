@@ -257,3 +257,6 @@ Nav di shipping, checkout steps
 
 Video 53
 payment screen,action,reducer, constants
+
+Video 54
+tampilan place order
