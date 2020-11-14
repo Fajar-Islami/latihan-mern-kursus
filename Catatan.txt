@@ -260,3 +260,12 @@ payment screen,action,reducer, constants
 
 Video 54
 tampilan place order
+
+Video 55
+Backend Order controller
+
+Video 57
+orderController
+// populate untuk cari data yang berkaitan
+
+
