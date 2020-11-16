@@ -269,3 +269,67 @@ orderController
 // populate untuk cari data yang berkaitan
 
 
+Video 63
+Paypal
+1. daftar paypal
+2. https://developer.paypal.com/developer/applications/
+3. https://developer.paypal.com/developer/accounts/
+buat akun sandbox
+
+1. create new app di my apps & credential
+2. copy client id
+AVyzU3rT85C2r_Kkkm-sVAQRoF3e42b726cVZEDBJKK7huDnEtwWf3_AG_396zxcSmhU_ZLCEgTRwmbW
+3. tarok di .env
+4. server.js 
+app.get('api/config/paypal',(req,res)=>res.send(process.env.PAYPAL_CLIENT_ID))
+
+Implement paypal
+1. install paypal sdk script
+https://developer.paypal.com/docs/checkout/reference/customize-sdk/
+2. orderscreen import axios
+3. tambah di useEffect
+   const addPayPalScript = async () => {
+      const { data: clientId } = await axios.get('/api/config/paypal');
+      // console.log(clientId);
+      const script = document.createElement('script')
+      script.type='text/javascript'
+      script.src=`https://paypal.com/sdk/js?client-id=${clientId}`
+      script.async=true
+    };
+4. tambah useState
+  const [sdkReady, setSdkReady] = useState(false);
+5. di useEffect tambah
+script.onload = () => {
+	setSdkReady(true);
+};
+document.body.appendChild(script)
+
+5. tambah
+  const orderPay = useSelector((state) => state.orderPay);
+  const { loading:loadingPay, success:successPay } = orderPay;
+// di rename
+
+6. di useEffect
+  if (!order || order._id !== orderId || successPay) {
+      dispatch(getOrderDetails(orderId));
+    } else if (!order.isPaid) {
+      if (!window.paypal) {
+        addPayPalScript();
+      } else {
+        setSdkReady(true);
+      }
+    }
+
+7. hasil script DOM ada di inspector paling bawah
+
+
+8 .install di front end
+npm i react-paypal-button-v2
+
+9. tarok buttonpaypal di orderscreen
+
+
+kalau pas klik button paypal gk login:
+pergi account di sanbox
+https://developer.paypal.com/developer/accounts/
+lalu edit dan view salah satu akun

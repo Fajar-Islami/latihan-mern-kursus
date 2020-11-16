@@ -28,13 +28,14 @@ export const orderCreateReducer = (state = {}, action) => {
         loading: false,
         error: action.payload,
       };
+
     default:
       return state;
   }
 };
 
 export const orderDetailsReducer = (
-  state = { loading: true, order: [], shippingAddress: {} },
+  state = { loading: true, orderItems: [], shippingAddress: {} },
   action,
 ) => {
   switch (action.type) {

@@ -29,6 +29,7 @@ const ProfileScreen = ({ history, location }) => {
     if (!userInfo) {
       history.push('/login');
     } else {
+      console.log(user.name);
       if (!user.name) {
         dispatch(getUserDetails('profile')); // profile linknya
       } else {
