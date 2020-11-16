@@ -333,3 +333,7 @@ kalau pas klik button paypal gk login:
 pergi account di sanbox
 https://developer.paypal.com/developer/accounts/
 lalu edit dan view salah satu akun
+
+Video 64
+urutan pembuatan
+backend -> contsants -> reducer -> store -> action -> screen
