@@ -35,7 +35,7 @@ const ProfileScreen = ({ history, location }) => {
       history.push('/login');
     } else {
       console.log(user.name);
-      if (!user.name) {
+      if (!user.name || user.name !== userInfo.name) {
         dispatch(getUserDetails('profile')); // profile linknya
         dispatch(listMyOrder());
       } else {
