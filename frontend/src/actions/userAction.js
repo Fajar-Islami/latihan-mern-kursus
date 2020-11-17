@@ -13,6 +13,9 @@ import {
   USER_UPDATE_PROFILE_SUCCESS,
   USER_UPDATE_PROFILE_FAIL,
   USER_DETAILS_RESET,
+  USER_LIST_REQUEST,
+  USER_LIST_SUCCESS,
+  USER_LIST_FAIL,
 } from '../constants/userConstant';
 import { ORDER_LIST_MY_RESET } from '../constants/orderConstant';
 
@@ -172,6 +175,43 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_UPDATE_PROFILE_FAIL,
+      payload:
+        error.response && error.response.data.msg
+          ? error.response.data.msg
+          : error.msg,
+    });
+  }
+};
+
+export const listUsers = () => async (dispatch, getState) => {
+  // getstate untuk dapat userinfo
+  try {
+    dispatch({
+      type: USER_LIST_REQUEST,
+    });
+
+    // Akses ke userinfo
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    // sent data to headers
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(`/api/users/`, config);
+    // user itu berupa objec dari profilescreen
+
+    dispatch({
+      type: USER_LIST_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: USER_LIST_FAIL,
       payload:
         error.response && error.response.data.msg
           ? error.response.data.msg
