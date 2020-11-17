@@ -6,6 +6,7 @@ import {
   registerUser,
   updateUserProfile,
   getUsers,
+  deleteUsers,
 } from '../controllers/userController.js';
 import { protect, admin } from '../middleware/authMiddleware.js';
 
@@ -18,5 +19,6 @@ router
   .get(protect, getUserProfile)
   .put(protect, updateUserProfile);
 // route supaya lebih aman/protected
+router.route('/:id').delete(protect, admin, deleteUsers);
 
 export default router;

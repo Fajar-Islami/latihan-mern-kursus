@@ -17,6 +17,9 @@ import {
   USER_LIST_SUCCESS,
   USER_LIST_FAIL,
   USER_LIST_RESET,
+  USER_DELETE_REQUEST,
+  USER_DELETE_SUCCESS,
+  USER_DELETE_FAIL,
 } from '../constants/userConstant';
 import { ORDER_LIST_MY_RESET } from '../constants/orderConstant';
 
@@ -214,6 +217,42 @@ export const listUsers = () => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_LIST_FAIL,
+      payload:
+        error.response && error.response.data.msg
+          ? error.response.data.msg
+          : error.msg,
+    });
+  }
+};
+
+export const deleteUser = (id) => async (dispatch, getState) => {
+  // getstate untuk dapat userinfo
+  try {
+    dispatch({
+      type: USER_DELETE_REQUEST,
+    });
+
+    // Akses ke userinfo
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    // sent data to headers
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.delete(`/api/users/${id}`, config);
+    // user itu berupa objec dari profilescreen
+
+    dispatch({
+      type: USER_DELETE_SUCCESS,
+    });
+  } catch (error) {
+    dispatch({
+      type: USER_DELETE_FAIL,
       payload:
         error.response && error.response.data.msg
           ? error.response.data.msg
