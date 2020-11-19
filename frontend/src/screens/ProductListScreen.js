@@ -6,13 +6,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 
-import { listProducts } from '../actions/productAction';
+import { listProducts, deleteProduct } from '../actions/productAction';
 
 const ProdcutListScreen = ({ history, match }) => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
+
+  const productDelete = useSelector((state) => state.productDelete);
+  const {
+    loading: loadingDelete,
+    error: errorDelete,
+    success: successDelete,
+  } = productDelete;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -23,11 +30,12 @@ const ProdcutListScreen = ({ history, match }) => {
     } else {
       history.push('/login');
     }
-  }, [dispatch, history, userInfo]);
+  }, [dispatch, history, userInfo, successDelete]);
+  // ketika success delete prodcut
 
   const deletedHandler = (id) => {
     if (window.confirm('Are you sure?')) {
-      // DELETE PRODUCT
+      dispatch(deleteProduct(id));
     }
   };
 
@@ -48,6 +56,8 @@ const ProdcutListScreen = ({ history, match }) => {
           </Button>
         </Col>
       </Row>
+      {loadingDelete && <Loader />}
+      {errorDelete && <Message variant='danger'> {errorDelete} </Message>}
       {loading ? (
         <Loader />
       ) : error ? (
