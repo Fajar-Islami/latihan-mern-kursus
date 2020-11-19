@@ -6,7 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 
-import { listProducts, deleteProduct } from '../actions/productAction';
+import {
+  listProducts,
+  deleteProduct,
+  createProduct,
+} from '../actions/productAction';
+import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
 
 const ProdcutListScreen = ({ history, match }) => {
   const dispatch = useDispatch();
@@ -21,16 +26,37 @@ const ProdcutListScreen = ({ history, match }) => {
     success: successDelete,
   } = productDelete;
 
+  const productCreate = useSelector((state) => state.productCreate);
+  const {
+    loading: loadingCreate,
+    error: errorCreate,
+    success: successCreate,
+    product: createdProduct,
+  } = productCreate;
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
   useEffect(() => {
-    if (userInfo && userInfo.isAdmin) {
-      dispatch(listProducts());
-    } else {
+    dispatch({ type: PRODUCT_CREATE_RESET });
+
+    if (!userInfo.isAdmin) {
       history.push('/login');
     }
-  }, [dispatch, history, userInfo, successDelete]);
+
+    if (successCreate) {
+      history.push(`/admin/product/${createdProduct._id}/edit`);
+    } else {
+      dispatch(listProducts());
+    }
+  }, [
+    dispatch,
+    history,
+    userInfo,
+    successDelete,
+    successCreate,
+    createdProduct,
+  ]);
   // ketika success delete prodcut
 
   const deletedHandler = (id) => {
@@ -41,6 +67,7 @@ const ProdcutListScreen = ({ history, match }) => {
 
   const createProductHandler = (product) => {
     // Create Product
+    dispatch(createProduct());
   };
 
   return (
@@ -58,6 +85,8 @@ const ProdcutListScreen = ({ history, match }) => {
       </Row>
       {loadingDelete && <Loader />}
       {errorDelete && <Message variant='danger'> {errorDelete} </Message>}
+      {loadingCreate && <Loader />}
+      {errorCreate && <Message variant='danger'> {errorCreate} </Message>}
       {loading ? (
         <Loader />
       ) : error ? (
