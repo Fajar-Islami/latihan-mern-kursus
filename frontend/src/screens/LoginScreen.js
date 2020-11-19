@@ -7,7 +7,7 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 import FormContainer from '../components/FormContainer';
 
-import { login, getUserDetails } from '../actions/userAction';
+import { login } from '../actions/userAction';
 
 const LoginScreen = ({ history, location }) => {
   const [email, setEmail] = useState('');
@@ -31,7 +31,6 @@ const LoginScreen = ({ history, location }) => {
 
     // Dispatch Login
     dispatch(login(email, password));
-    // dispatch(getUserDetails('profile'));
   };
 
   return (
