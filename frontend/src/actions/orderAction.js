@@ -11,6 +11,9 @@ import {
   ORDER_LIST_MY_REQUEST,
   ORDER_LIST_MY_SUCCESS,
   ORDER_LIST_MY_FAIL,
+  ORDER_LIST_REQUEST,
+  ORDER_LIST_SUCCESS,
+  ORDER_LIST_FAIL,
 } from '../constants/orderConstant';
 import { CART_CLEAR_ITEMS } from '../constants/cartConstant';
 import axios from 'axios';
@@ -165,6 +168,42 @@ export const listMyOrder = () => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: ORDER_LIST_MY_FAIL,
+      payload:
+        error.response && error.response.data.msg
+          ? error.response.data.msg
+          : error.msg,
+    });
+  }
+};
+
+export const listOrder = () => async (dispatch, getState) => {
+  // getstate untuk dapat userinfo
+  try {
+    dispatch({
+      type: ORDER_LIST_REQUEST,
+    });
+
+    // Akses ke userinfo
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    // sent data to headers
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(`/api/orders/`, config);
+
+    dispatch({
+      type: ORDER_LIST_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ORDER_LIST_FAIL,
       payload:
         error.response && error.response.data.msg
           ? error.response.data.msg
