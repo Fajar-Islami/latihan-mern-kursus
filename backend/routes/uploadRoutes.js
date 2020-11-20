@@ -6,7 +6,7 @@ const router = express.Router();
 // Storage engine
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, 'uploads'); // folder uploads
+    cb(null, 'uploads/'); // folder uploads
   },
   filename(req, file, cb) {
     cb(
@@ -34,7 +34,7 @@ function checkFileType(file, cb) {
 
 const upload = multer({
   storage,
-  fileFilter: function (req, res, cb) {
+  fileFilter: function (req, file, cb) {
     checkFileType(file, cb);
   },
 });

@@ -337,3 +337,18 @@ lalu edit dan view salah satu akun
 Video 64
 urutan pembuatan
 backend -> contsants -> reducer -> store -> action -> screen
+
+Video 79
+untuk upload file butuh multer,install di root
+npm i multer
+
+di root buat folder upload
+
+buat uploadRoutes
+
+buat folder jadi static, di server.js agar bisa diakses
+lalu,
+import path from 'path'
+
+// di esmodule gk bisa mke __dirname, maka buat const berikut
+const __dirname = path.resolve()
