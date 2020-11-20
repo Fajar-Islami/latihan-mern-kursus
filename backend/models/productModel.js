@@ -7,12 +7,17 @@ const reviewSchema = mongoose.Schema(
       required: true,
     },
     rating: {
+      type: Number,
+      required: true,
+    },
+    comment: {
       type: String,
       required: true,
     },
-    rating: {
-      type: String,
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
+      ref: 'User', //Konek ke spesifik tabel User
     },
   },
   {
@@ -47,7 +52,7 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    review: [reviewSchema], // ngambil dari atas
+    reviews: [reviewSchema], // ngambil dari atas
     rating: {
       type: Number,
       required: true,
