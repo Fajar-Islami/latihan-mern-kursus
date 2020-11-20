@@ -352,3 +352,8 @@ import path from 'path'
 
 // di esmodule gk bisa mke __dirname, maka buat const berikut
 const __dirname = path.resolve()
+
+Video 82
+ 'Content-Type': 'application/json',
+
+dipake kalau mau kirim data
