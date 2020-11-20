@@ -8,6 +8,7 @@ import Loader from '../components/Loader';
 
 import { getUserDetails, updateUserProfile } from '../actions/userAction';
 import { listMyOrder } from '../actions/orderAction';
+import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstant';
 
 const ProfileScreen = ({ history, location }) => {
   const [name, setName] = useState('');
@@ -34,8 +35,9 @@ const ProfileScreen = ({ history, location }) => {
     if (!userInfo) {
       history.push('/login');
     } else {
-      console.log(user.name);
-      if (!user.name || user.name !== userInfo.name) {
+      // console.log(user.name);
+      if (!user || !user.name || user.name !== userInfo.name || success) {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails('profile')); // profile linknya
         dispatch(listMyOrder());
       } else {
@@ -45,7 +47,7 @@ const ProfileScreen = ({ history, location }) => {
         setEmail(user.email);
       }
     }
-  }, [dispatch, history, userInfo, user]);
+  }, [dispatch, history, userInfo, user, success]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -114,7 +116,7 @@ const ProfileScreen = ({ history, location }) => {
         ) : errorOrders ? (
           <Message variant='danger'> {errorOrders} </Message>
         ) : (
-          <Table stripped bordered hover responsive className='table-sm'>
+          <Table stripped='true' bordered hover responsive className='table-sm'>
             <thead>
               <tr>
                 <th>ID</th>
