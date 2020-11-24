@@ -362,3 +362,23 @@ Video 83
 Morgan = logger ketika route di backend
 install di root
 npm i morgan 
+
+Video 85
+search box
+
+karena dia embed, trus pke props.history maka di headernya
+
+import { Route } from 'react-router-dom';
+ <Route render={({ history }) => <SearchBox history={history} />} />
+
+perubahan listproducts di action jadi kirim props
+
+ubah productController
+
+$regex == supaya pencarian tidak harus spesifik
+$options='i' 
+
+
+Video 86
+Kalau mau liat pagination, productcontroller ubah 
+const pageSize = 2;
