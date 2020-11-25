@@ -25,10 +25,6 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 // accept json data in body
 
-app.get('/', (req, res) => {
-  res.send('API is running....');
-});
-
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
@@ -43,6 +39,21 @@ const __dirname = path.resolve();
 
 // Static folder in express, agar bisa diakses
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+
+// Production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '/frontend/build')));
+
+  app.get('*', (req, res) =>
+    // ambil semua route
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')),
+  );
+} else {
+  app.get('/', (req, res) => {
+    res.send('API is running....');
+  });
+}
+//
 
 // 404 Error routes
 app.use(notFound);
