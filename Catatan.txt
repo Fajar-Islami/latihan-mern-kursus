@@ -382,3 +382,7 @@ $options='i'
 Video 86
 Kalau mau liat pagination, productcontroller ubah 
 const pageSize = 2;
+
+Video 88 
+React-helmet di front-end
+npm i react-helmet
