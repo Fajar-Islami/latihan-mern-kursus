@@ -386,3 +386,71 @@ const pageSize = 2;
 Video 88 
 React-helmet di front-end
 npm i react-helmet
+
+Video 89
+deployment app
+
+1. di front end
+npm run build
+
+2. folder buildnya di buat static
+
+3. di backend
+di serverjs
+// Production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '/frontend/build')));
+
+  app.get('*', (req, res) =>
+    // ambil semua route
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')),
+  );
+} else {
+  app.get('/', (req, res) => {
+    res.send('API is running....');
+  });
+}
+
+4. ubah .env
+ubah NODE_ENV = development menjadi
+NODE_ENV = production
+
+5. package.json di root
+sekarang dijalankan cukup dengan npm run start (menjalankan servernya saja)
+
+video 90
+.env tidak diupload, ditulis di .gitignore untuk keamanan
+
+tidak perlu npm run build untuk upload ke hiroku
+
+1. install heroku cli
+https://devcenter.heroku.com/articles/heroku-cli
+
+2. di root login heroku
+heroku login
+
+3. heroku create ghanishopapp (nama bebas)
+https://ghanishop.herokuapp.com/ | https://git.heroku.com/ghanishop.git
+
+
+4. di root buat file
+Procfile
+
+atur file yang dijalankan
+web: node backend/index.js
+
+5. dipackge.json root
+"heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+
+6. pilih menu deploy di heroku untuk remote
+heroku git:remote -a ghanishop
+
+7. git push heroku master
+kalo mau ada perubahan lakukan lagi
+
+8. klo mau liat error di
+heroku logs
+
+9. pergi ke heroku settings
+config vars
+isi sesusai di .env
